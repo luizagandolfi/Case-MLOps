@@ -1,0 +1,33 @@
+data_load:
+  source: 'google_drive' # or database
+  destination_directory: data/raw
+  google_drive:
+    credentials: src/credentials/credentials.json
+    scope: 'https://www.googleapis.com/auth/drive.readonly'
+  database: # abstraction of source
+    user: user
+    password: password
+    host: localhost
+    port: port
+    driver: driver
+    database: database
+    query: 'SELECT * FROM table'
+    
+
+data_preprocess:
+  source_directory: data/raw
+  destination_directory: data/processed
+
+model: 
+  name: GradientBoostingRegressor
+  parameters:
+    learning_rate: 0.5
+    n_estimators: 200
+    max_depth: 10
+    loss: absolute_error
+
+train:
+  target_column: "price"
+  categorical_columns: ["type", "sector"]
+  destination_directory: outputs/model
+    # Adicionando a chave que estava faltando
