@@ -29,7 +29,11 @@ Initialize Docker, it was done with Docker Desktop.
 ```cmd
  docker-compose up
 ```
-It will initiate the pipeline and the api in docker. If you want to run just the pipeline, exit api by pressing CTRL-C (in cmd) and run only the pipeline by executing "docker-compose run pipeline". DVC will be initiated and the pipeline will be executed.
+It will initiate the pipeline and the api in docker. If you want to run just the pipeline, exit api by pressing CTRL-C (in cmd) and run only the pipeline by executing 
+```cmd
+ docker-compose run pipeline
+```
+DVC will be initiated and the pipeline will be executed.
 
  ## Explanation:
  The pipeline is composed mainly by four stages: Data Loading (data_load.py), Data Preprocessing (data_preprocess.py), Training the model (train.py) and Evaluating the model (evaluating.py). Besides, there is the file "params.yaml" that is used to control certain variables that can be changed in the pipeline, sush as directories, source of data (drive or certain database) and training parameters, assuring that way that, by modifying only this file, the pipeline will execute with the desired specifications.
