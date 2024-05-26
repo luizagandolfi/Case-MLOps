@@ -15,14 +15,17 @@ Install dependencies:
  pip install -r requirements
  ```
 Initiate DVC (it must be used just the first time you run the pipeline):
-dvc init
+```cmd
+ dvc init
+ ```
 
 Run pipeline:
-dvc repro
+```cmd
+ dvc repro
+ ```
 
 ## If you want to run the pipeline in docker, follow these steps:
 Initialize Docker, it was done with Docker Desktop.
-
 ```cmd
  docker-compose up
 ```
