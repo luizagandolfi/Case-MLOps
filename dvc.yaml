@@ -1,0 +1,47 @@
+stages:
+  data_load:
+    cmd: python src/data_load.py --params params.yaml
+    deps:
+    - src/data_load.py
+    
+    outs:
+    - data/raw/test.csv
+    - data/raw/train.csv
+    params:
+    - data_load
+
+  data_preprocess:
+    cmd: python src/data_preprocess.py --params params.yaml
+    deps:
+    - src/data_preprocess.py
+    - data/raw/train.csv
+    - data/raw/test.csv
+    outs:
+    - data/processed/test_processed.pckl
+    - data/processed/train_processed.pckl
+    - outputs/model/preprocessor.sav
+    params:
+    - data_preprocess
+
+  train:
+    cmd: python src/train.py --params params.yaml
+    deps:
+    - src/train.py
+    - data/processed/train_processed.pckl
+    - data/processed/test_processed.pckl
+    outs:
+    - outputs/model/model.sav
+    params:
+    - data_preprocess
+    - model
+    - train
+    
+  evaluate:
+    cmd: python src/evaluate.py --params params.yaml
+    deps:
+    - outputs/model/model.sav
+    outs:
+    - outputs/metrics.yaml
+    params:
+    - data_preprocess
+    - train
