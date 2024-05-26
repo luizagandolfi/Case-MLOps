@@ -4,7 +4,6 @@ stages:
     cmd: python src/data_load.py --params params.yaml
     deps:
     - path: src/data_load.py
-      hash: md5
       md5: 5a1ddc4eb2a918dcc19e651d1b70d958
       size: 4913
     params:
@@ -25,26 +24,21 @@ stages:
             query: SELECT * FROM table
     outs:
     - path: data/raw/test.csv
-      hash: md5
       md5: 0166a24f0208b78bf18e357c4ae76cce
       size: 462624
     - path: data/raw/train.csv
-      hash: md5
       md5: fa503ac6f402d8060234cd6453c23b76
       size: 1078702
   data_preprocess:
     cmd: python src/data_preprocess.py --params params.yaml
     deps:
     - path: data/raw/test.csv
-      hash: md5
       md5: 0166a24f0208b78bf18e357c4ae76cce
       size: 462624
     - path: data/raw/train.csv
-      hash: md5
       md5: fa503ac6f402d8060234cd6453c23b76
       size: 1078702
     - path: src/data_preprocess.py
-      hash: md5
       md5: b0ca9a3fbd2f944a9ca74f39d546369c
       size: 3994
     params:
@@ -54,30 +48,24 @@ stages:
           destination_directory: data/processed
     outs:
     - path: data/processed/test_processed.pckl
-      hash: md5
       md5: 0df5167bf16fd4fa9dda83f88c4dd0aa
       size: 501091
     - path: data/processed/train_processed.pckl
-      hash: md5
       md5: ac5bafec8758f01123eb8f8ca84842ce
       size: 1168027
     - path: outputs/model/preprocessor.sav
-      hash: md5
-      md5: 38ff2925e05ed1258d352eaf97eb7bc8
-      size: 3686
+      md5: 8e90d3dab76decf8a99485c80fc4b9c6
+      size: 3587
   train:
     cmd: python src/train.py --params params.yaml
     deps:
     - path: data/processed/test_processed.pckl
-      hash: md5
       md5: 0df5167bf16fd4fa9dda83f88c4dd0aa
       size: 501091
     - path: data/processed/train_processed.pckl
-      hash: md5
       md5: ac5bafec8758f01123eb8f8ca84842ce
       size: 1168027
     - path: src/train.py
-      hash: md5
       md5: 76b8143ce997ed319eb3c19888dd31a8
       size: 2012
     params:
@@ -100,16 +88,14 @@ stages:
           destination_directory: outputs/model
     outs:
     - path: outputs/model/model.sav
-      hash: md5
-      md5: ef22dd8d2e6d65a128e7eccf60951205
-      size: 6162710
+      md5: 296fe563e7347c2874a01c638eaa0873
+      size: 7083251
   evaluate:
     cmd: python src/evaluate.py --params params.yaml
     deps:
     - path: outputs/model/model.sav
-      hash: md5
-      md5: ef22dd8d2e6d65a128e7eccf60951205
-      size: 6162710
+      md5: 296fe563e7347c2874a01c638eaa0873
+      size: 7083251
     params:
       params.yaml:
         data_preprocess:
@@ -123,6 +109,5 @@ stages:
           destination_directory: outputs/model
     outs:
     - path: outputs/metrics.yaml
-      hash: md5
-      md5: 8910a79ce78a085b9b4d9442391d8353
+      md5: 180dd2405703acd37d12bd79d3d404da
       size: 457
