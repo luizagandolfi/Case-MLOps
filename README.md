@@ -1,4 +1,4 @@
-# Read me for pipeline used for reproducibility and scalability of the model.
+# README for pipeline used for reproducibility and scalability of the model.
 This part of the readme file is based on the production of a simple but effective pipeline for the productivization of a notebook and its data.
 
 ## Assumptions
@@ -49,7 +49,7 @@ It will initiate the pipeline and the api in docker. If you want to run just the
  The pipeline is executed in full using the file "dvc.yaml" that specified the stages, order, dependencies and outputs. It is executed locally by typing "dvc repro" in the cmd. If a parameter is changed, we run again the pipeline and the changes will be applied to the code.
 
 
-# Read me for api for model usage.
+# README for api for model usage.
 This part of the readme file is based on the serving of a pipeline.
 
 ## Assumptions
