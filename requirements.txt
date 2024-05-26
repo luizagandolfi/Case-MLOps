@@ -1,0 +1,16 @@
+dvc
+fastapi
+uvicorn
+pydantic
+passlib
+python-jose
+pandas~=1.5.3
+PyYAML
+PyJWT
+joblib
+scikit-learn
+category-encoders
+google-auth
+google-api-python-client
+sqlalchemy
+bcrypt
