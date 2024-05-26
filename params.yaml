@@ -30,4 +30,3 @@ train:
   target_column: "price"
   categorical_columns: ["type", "sector"]
   destination_directory: outputs/model
-    # Adicionando a chave que estava faltando
