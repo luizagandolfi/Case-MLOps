@@ -14,12 +14,18 @@ Install dependencies:
 ```cmd
  pip install -r requirements
  ```
+Initiate DVC (it must be used just the first time you run the pipeline):
+```cmd
+ dvc init
+ ```
+
 Run pipeline:
-dvc repro
+```cmd
+ dvc repro
+ ```
 
 ## If you want to run the pipeline in docker, follow these steps:
 Initialize Docker, it was done with Docker Desktop.
-
 ```cmd
  docker-compose up
 ```
@@ -47,7 +53,7 @@ It will initiate the pipeline and the api in docker. If you want to run just the
 
 
 # README for api for model usage.
-This part of the readme file is based on the serving of a pipeline.
+This part of the readme file is based on the serving of an api.
 
 ## Assumptions
 For this assignment, i assumed i could use the automatic swagger-ui, available by putting /docs at the end of localhost:8000.
