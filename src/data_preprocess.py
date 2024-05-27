@@ -36,7 +36,6 @@ def fit_preprocessing(data, categorical_columns, target_column, preprocessor_des
         data_transformed = preprocessor.fit_transform(data[train_columns], data[target_column])
         df_transformed = pd.DataFrame(data_transformed, columns=data.columns)
         
-        print("Versão do scikit-learn:", sklearn.__version__)
         pickle.dump(preprocessor, open(preprocessor_destination_directory / "preprocessor.sav", "wb"))
         logger.info('Preprocessing fit completed and saved.')
         return df_transformed, preprocessor
