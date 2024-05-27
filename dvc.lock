@@ -76,8 +76,8 @@ stages:
         model:
           name: GradientBoostingRegressor
           parameters:
-            learning_rate: 0.5
-            n_estimators: 200
+            learning_rate: 0.6
+            n_estimators: 100
             max_depth: 10
             loss: absolute_error
         train:
@@ -88,14 +88,14 @@ stages:
           destination_directory: outputs/model
     outs:
     - path: outputs/model/model.sav
-      md5: a5708ff80b85a1ef98b94298e4da7537
-      size: 6245834
+      md5: 32969a6a3eaac78f796b97b8a520ce9d
+      size: 2626325
   evaluate:
     cmd: python src/evaluate.py --params params.yaml
     deps:
     - path: outputs/model/model.sav
-      md5: a5708ff80b85a1ef98b94298e4da7537
-      size: 6245834
+      md5: 32969a6a3eaac78f796b97b8a520ce9d
+      size: 2626325
     params:
       params.yaml:
         data_preprocess:
@@ -109,5 +109,5 @@ stages:
           destination_directory: outputs/model
     outs:
     - path: outputs/metrics.yaml
-      md5: ac8311ec1b40e1c1bfeae241f0b45850
+      md5: e1b215a40c6386062ed4098ec0b2004b
       size: 457
