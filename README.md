@@ -14,11 +14,6 @@ Install dependencies:
 ```cmd
  pip install -r requirements
  ```
-Initiate DVC (it must be used just the first time you run the pipeline):
-```cmd
- dvc init
- ```
-
 Run pipeline:
 ```cmd
  dvc repro
