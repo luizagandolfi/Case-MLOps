@@ -9,7 +9,7 @@ For these assignments, i assume that i can not modify or improve the notebook in
 ```bash
  git clone https://github.com/luizagandolfi/MLOps.git
 ```
-## If you want to run the pipeline without docker, follow these steps:
+## For the pipeline, follow these steps:
 Install dependencies:
 ```cmd
  pip install -r requirements
@@ -24,7 +24,7 @@ Run pipeline:
  dvc repro
  ```
 
-## If you want to run the pipeline in docker, follow these steps:
+## after, to run the pipeline in docker all further times, follow these steps:
 Initialize Docker, it was done with Docker Desktop.
 ```cmd
  docker-compose up
