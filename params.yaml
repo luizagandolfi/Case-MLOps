@@ -21,8 +21,8 @@ data_preprocess:
 model: 
   name: GradientBoostingRegressor
   parameters:
-    learning_rate: 0.5
-    n_estimators: 200
+    learning_rate: 0.6
+    n_estimators: 100
     max_depth: 10
     loss: absolute_error
 

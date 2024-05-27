@@ -54,8 +54,8 @@ stages:
       md5: ac5bafec8758f01123eb8f8ca84842ce
       size: 1168027
     - path: outputs/model/preprocessor.sav
-      md5: 8e90d3dab76decf8a99485c80fc4b9c6
-      size: 3587
+      md5: 38ff2925e05ed1258d352eaf97eb7bc8
+      size: 3686
   train:
     cmd: python src/train.py --params params.yaml
     deps:
@@ -88,14 +88,14 @@ stages:
           destination_directory: outputs/model
     outs:
     - path: outputs/model/model.sav
-      md5: 6f64c41c547c6a36fdef5585648d48a0
-      size: 7761401
+      md5: a5708ff80b85a1ef98b94298e4da7537
+      size: 6245834
   evaluate:
     cmd: python src/evaluate.py --params params.yaml
     deps:
     - path: outputs/model/model.sav
-      md5: 6f64c41c547c6a36fdef5585648d48a0
-      size: 7761401
+      md5: a5708ff80b85a1ef98b94298e4da7537
+      size: 6245834
     params:
       params.yaml:
         data_preprocess:
@@ -109,5 +109,5 @@ stages:
           destination_directory: outputs/model
     outs:
     - path: outputs/metrics.yaml
-      md5: 57c28eb158ef93071364bcf33f54442e
+      md5: ac8311ec1b40e1c1bfeae241f0b45850
       size: 457
